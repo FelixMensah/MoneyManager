@@ -350,17 +350,4 @@ print(moneyLeavingAfterTaxUser)
 # def moneyLeavingAfterExpenses():
 # def leavingDebt():
 # def saving():
-"""
- if date.today().year - dobUser.year <= 66:
-                return date.today().year - dobUser.year
-            elif date.today().year - dobUser.year == 67:
-                if date.today().month < dobUser.month:
-                    return 66
-            elif date.today().month > dobUser.month:
-                return 67
-            elif date.today().month == dobUser.month:
-                if date.today().day < dobUser.day:
-                    return 66
-                elif date.today().day >= dobUser.day:
-                    return 67
-"""
+
