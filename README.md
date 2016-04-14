@@ -4,7 +4,7 @@ The MoneyManager app will help you estimate how much money you can actually save
 
 All the calculations in the taxation part are accurate.  
 
-After entering your personal data, an output file will be edited your the results and your own information.
+After entering your personal data, an output file will be edited with your the results and your own information.
 
 VERY IMPORTANT :
 - To use the app properly, please put the money manager app and the output.txt file in the same file.
