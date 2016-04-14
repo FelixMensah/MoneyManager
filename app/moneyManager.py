@@ -291,7 +291,6 @@ studentloanUser = studentloan()
 consumerloanUser = consumerloan()
 mortgageloanUser = mortgageloan()
 debtreimbursementUser = debtreimbursement()
-totalloanUser = studentloanUser + consumerloanUser + mortgageloanUser - debtreimbursementUser
 foodUser = food()
 clothingUser = clothing()
 hobbyUser = hobby()
