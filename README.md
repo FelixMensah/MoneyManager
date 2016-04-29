@@ -8,5 +8,5 @@ After entering your personal data, an output file will be edited with your the r
 
 VERY IMPORTANT :
 - To use the app properly, please put the money manager app and the output.txt file in the same file.
-- Be sure to put your own directory at the line 418 
+- Be sure to put your own directory at the line 371 
   -> my_file = open("C:\\Users\\Félix\\PycharmProjects\\MoneyManager\\src\\output", "r+")
