@@ -6,54 +6,47 @@ __author__ = 'Felix'
 
 
 def title():
-    while AssertionError:
+    while True :
         titleuser = input("What is your title? : Mr, Mrs, Ms")
         titleuser = titleuser.capitalize()
-        if titleuser == 'Mr' or titleuser == 'Mrs' or titleuser == 'Ms':
-            return titleuser
-            break
-        try:
-            assert (titleuser == 'Mr' or titleuser == 'Mrs' or titleuser == 'Ms')
-        except AssertionError:
-            print('You have to choose between Mr, Mrs and Ms.')
+        if not titleuser == 'Mr' or titleuser == 'Mrs' or titleuser == 'Ms':
+                print('You have to choose between Mr, Mrs and Ms.')
+        else:
+            return  titleuser
 
 
 def firstname():
-    while AssertionError:
-        try:
-            firstnameuser = input("What is your firstname?")
-            firstnameuser = firstnameuser.capitalize()
-            assert (firstnameuser.isalpha())
+    while True:
+        firstnameuser = input("What is your firstname?")
+        firstnameuser = firstnameuser.capitalize()
+        if not firstnameuser.isalpha():
+               print('You have to enter a proper firstname.')
+        else:
             return firstnameuser
-        except AssertionError:
-            print('You have to enter a proper firstname.')
+
 
 
 def surname():
-    while AssertionError:
+    while True:
         surnameuser = input("What is your surname?")
         surnameuser = surnameuser.upper()
-        if surnameuser.isalpha():
-            return surnameuser
-            break
-        try:
-            assert (surnameuser.isalpha())
-        except AssertionError:
+        if not surnameuser.isalpha():
             print('You have to enter a proper surname.')
-
+        else:
+            return surnameuser
 
 def age():
-    while AssertionError:
-        try:
-            year = input('Enter your year of birth : YYYY')
-            month = input('Enter your month of birth : MM')
-            day = input('Enter your day of birth : DD')
-
-            assert (year.isnumeric() and len(year) == 4)
-            assert (not (not month.isnumeric() or not (1 <= len(month) <= 2)) and 1 <= int(month) <= 12)
-            assert (not (not day.isnumeric() or not (1 <= len(day) <= 2)) and 1 <= int(day) <= 31)
-
-            assert (int(year) <= date.today().year)
+    while True:
+        year = input('Enter your year of birth : YYYY')
+        month = input('Enter your month of birth : MM')
+        day = input('Enter your day of birth : DD')
+        if not year.isnumeric() and len(year) == 4 or not (int(year) <= date.today().year):
+            print('You have to enter a proper year.')
+        elif not month.isnumeric() or not (1 <= len(month) <= 2) and not 1 <= int(month) <= 12:
+            print('You have to enter a proper month.')
+        elif not day.isnumeric() or not (1 <= len(day) <= 2) and not 1 <= int(day) <= 31:
+            print('You have to enter a proper day.')
+        else:
             age = date.today().year - int(year)
             year = int(year)
             month = int(month)
@@ -61,213 +54,174 @@ def age():
             dob = (age, year, month, day)
             return dob
 
-        except AssertionError:
-            print('You have to enter a proper date of birth: YYYY-MM-DD.')
-
-
 def income():
-    while AssertionError:
-        try:
-            salaryfrequency = input(
-                'Do you want to enter your salary per year, pear month or per week ? Enter Y, M or W.')
+    while True:
+            salaryfrequency = input('Do you want to enter your salary per year, pear month or per week ? Enter Y, M or W.')
             salaryfrequency = salaryfrequency.upper()
-            assert (salaryfrequency == 'Y' or salaryfrequency == 'W' or salaryfrequency == 'M')
-            if salaryfrequency == 'W':
-                while AssertionError:
-                    try:
-                        wageweek = input('How much do you earn per week?')
-                        assert (wageweek.isnumeric())
-                        return int(wageweek) * 52
-                    except AssertionError:
-                        print('Enter a numeric input.')
-            elif salaryfrequency == 'M':
-                while AssertionError:
-                    try:
-                        wagemonth = input('How much do you earn per month?')
-                        assert (wagemonth.isnumeric())
-                        return int(wagemonth) * 12
-                    except AssertionError:
-                        print('Enter a numeric input.')
+            if not (salaryfrequency == 'Y' or salaryfrequency == 'W' or salaryfrequency == 'M'):
+                print('Paid weekly -> W : Paid monthly -> M : Paid Yearly -> Y')
             else:
-                while AssertionError:
-                    try:
-                        wageyear = input('How much do you earn per year?')
-                        assert (wageyear.isnumeric())
-                        return int(wageyear)
-                    except AssertionError:
-                        print('Enter a numeric input.')
-
-        except AssertionError:
-            print('Paid weekly -> W : Paid monthly -> M : Paid Yearly -> Y')
-
+                if salaryfrequency == 'W':
+                     while True:
+                        wageweek = input('How much do you earn per week?')
+                        if not wageweek.isnumeric():
+                          print('Enter a numeric input.')
+                        else:
+                          return int(wageweek) * 52
+                elif salaryfrequency == 'M':
+                     while True:
+                        wagemonth = input('How much do you earn per month?')
+                        if not wagemonth.isnumeric():
+                           print('Enter a numeric input.')
+                        else:
+                             return int(wagemonth) * 12
+                else:
+                     while True:
+                         wageyear = input('How much do you earn per year?')
+                         if not wageyear.isnumeric():
+                             print('Enter a numeric input.')
+                         else:
+                             return int(wageyear)
 
 def rent():
-    while AssertionError:
-        try:
+    while True:
             rentfrequency = input('Do you pay your rent weekly or monthly? Enter W or M.')
             rentfrequency = rentfrequency.upper()
-            assert (rentfrequency == 'W' or rentfrequency == 'M')
-            if rentfrequency == 'W':
-                while AssertionError:
-                    try:
-                        rentweek = input('How much do you pay per week?')
-                        assert (rentweek.isnumeric())
-                        return int(rentweek) * 52
-                    except AssertionError:
-                        print('Enter a numeric input.')
-            elif rentfrequency == 'M':
-                while AssertionError:
-                    try:
-                        rentmonth = input('How much do you pay per month?')
-                        assert (rentmonth.isnumeric())
-                        return int(rentmonth) * 12
-                    except AssertionError:
-                        print('Enter a numeric input.')
-        except AssertionError:
-            print('Paid weekly -> W or Paid monthly -> M.')
-
+            if not (rentfrequency == 'W' or rentfrequency == 'M'):
+               print('Paid weekly -> W or Paid monthly -> M.')
+            else:
+                if rentfrequency == 'W':
+                    while True:
+                            rentweek = input('How much do you pay per week?')
+                            if not rentweek.isnumeric():
+                               print('Enter a numeric input.')
+                            else:
+                                return int(rentweek) * 52
+                else :
+                    while True:
+                            rentmonth = input('How much do you pay per month?')
+                            if not rentmonth.isnumeric():
+                                print('Enter a numeric input.')
+                            else:
+                                return int(rentmonth) * 12
 
 def studentloan():
-    while AssertionError:
-        try:
+    while True:
             studentloan = input('Do you have a student loan? Y/N')
             studentloan = studentloan.upper()
-            assert (studentloan == 'Y' or studentloan == 'N')
-            if studentloan == 'N':
-                studentloanuser = 0
-                return studentloanuser
+            if not (studentloan == 'Y' or studentloan == 'N'):
+               print('You have to choose between Yes or No: Y/N ')
             else:
-                while AssertionError:
-                    try:
+                if studentloan == 'N':
+                    studentloanuser = 0
+                    return studentloanuser
+                else:
+                    while True:
                         studentloanuser = input('How much is your student loan?')
-                        assert (studentloanuser.isnumeric())
-                        return int(studentloanuser)
-                    except AssertionError:
-                        print('Enter a numeric input.')
-        except AssertionError:
-            print('You have to choose between Yes or No: Y/N ')
-
+                        if not studentloanuser.isnumeric():
+                            print('Enter a numeric input.')
+                        else:
+                            return int(studentloanuser)
 
 def consumerloan():
-    while AssertionError:
-        try:
+    while True:
             consumerloan = input('Do you have a consumer loan? Y/N')
             consumerloan = consumerloan.upper()
-            assert (consumerloan == 'Y' or consumerloan == 'N')
-
-            if consumerloan == 'N':
-                consumerloanuser = 0
-                return consumerloanuser
+            if not (consumerloan == 'Y' or consumerloan == 'N'):
+               print('You have to choose between Yes or No: Y/N ')
             else:
-                while AssertionError:
-                    try:
+                if consumerloan == 'N':
+                    consumerloanuser = 0
+                    return consumerloanuser
+                else:
+                    while True:
                         consumerloanuser = input('How much is your consumer loan?')
-                        assert (consumerloanuser.isnumeric())
-                        return int(consumerloanuser)
-                    except AssertionError:
-                        print('Enter a numeric input.')
-        except AssertionError:
-            print('You have to choose between Yes or No: Y/N ')
-
+                        if not consumerloanuser.isnumeric():
+                            print('Enter a numeric input.')
+                        else:
+                            return int(consumerloanuser)
 
 def mortgageloan():
-    while AssertionError:
-        try:
+    while True:
             mortgageloan = input('Do you have a mortgage loan? Y/N')
             mortgageloan = mortgageloan.upper()
-            assert (mortgageloan == 'Y' or mortgageloan == 'N')
-            if mortgageloan == 'N':
-                mortgageloanuser = 0
-                return mortgageloanuser
+            if not (mortgageloan == 'Y' or mortgageloan == 'N'):
+               print('You have to choose between Yes or No: Y/N ')
             else:
-                while AssertionError:
-                    try:
+                if mortgageloan == 'N':
+                    mortgageloanuser = 0
+                    return mortgageloanuser
+                else:
+                    while True:
                         mortgageloanuser = input('How much is your mortgage loan?')
-                        assert (mortgageloanuser.isnumeric())
-                        return int(mortgageloanuser)
-                    except AssertionError:
-                        print('Enter a numeric input.')
-        except AssertionError:
-            print('You have to choose between Yes or No: Y/N ')
-
+                        if not mortgageloanuser.isnumeric():
+                            print('Enter a numeric input.')
+                        else:
+                            return int(mortgageloanuser)
 
 def food():
-    while AssertionError:
-        try:
-            fooduser = input('How much do yo spend per week for your food?')
-            assert (fooduser.isnumeric())
-            return int(fooduser) * 52
-        except AssertionError:
-            print('Enter a numeric input.')
-
+    while True:
+        fooduser = input("How much do yo spend per week for your food?")
+        if not fooduser.isnumeric():
+               print('Enter a numeric input.')
+        else:
+             return int(fooduser)
 
 def debtreimbursement():
-    while AssertionError:
-        try:
-            debtreimbursemenuser = input('How much do you payback per month for your loans?')
-            assert (debtreimbursemenuser.isnumeric())
-            return int(debtreimbursemenuser) * 12
-        except AssertionError:
-            print('Enter a numeric input.')
-
+    while True:
+        debtreimbursment = input("How much do you payback per month for your loans?")
+        if not debtreimbursment.isnumeric():
+               print('Enter a numeric input.')
+        else:
+             return int(debtreimbursment)*12
 
 def clothing():
-    while AssertionError:
-        try:
-            clothinguser = input('Estimate how much you pay per year for your clothes.')
-            assert (clothinguser.isnumeric())
-            return int(clothinguser)
-        except AssertionError:
-            print('Enter a numeric input.')
-
+    while True:
+        clothing = input("Estimate how much you pay per year for your clothes.")
+        if not clothing.isnumeric():
+               print('Enter a numeric input.')
+        else:
+             return int(clothing)
 
 def hobby():
-    while AssertionError:
-        try:
-            hobbyuser = input('Give an estimation of how much you pay per month for your hobbies.')
-            assert (hobbyuser.isnumeric())
-            return int(hobbyuser) * 12
-        except AssertionError:
-            print('Enter a numeric input.')
-
+    while True:
+        hobby = input("Give an estimation of how much you pay per month for your hobbies.")
+        if not hobby.isnumeric():
+               print('Enter a numeric input.')
+        else:
+             return int(hobby)*12
 
 def miscellaneous():
-    while AssertionError:
-        try:
-            miscellaneoususer = input('Estimate any other expenses during this year.')
-            assert (miscellaneoususer.isnumeric())
-            return int(miscellaneoususer)
-        except AssertionError:
-            print('Enter a numeric input.')
-
+    while True:
+        miscellaneous = input("Estimate any other expenses during this year.")
+        if not miscellaneous.isnumeric():
+               print('Enter a numeric input.')
+        else:
+             return int(miscellaneous)
 
 def childrenNumber():
     print('The average cost of raising a child in the UK is ' + u"\u00a3" + '3762.')
-    while AssertionError:
-        try:
+    while True:
             childrenuser = input('How many chidren do you have?')
-            assert (childrenuser.isnumeric())
-            childrenCost = int(childrenuser) * 3762
-            childrenuser = int(childrenuser)
-            childrenTotal = (childrenuser, childrenCost)
-            return childrenTotal
-        except AssertionError:
-            print('Enter a numeric input.')
-
+            if not childrenuser.isnumeric():
+                print('Enter a numeric input.')
+            else:
+                childrenCost = int(childrenuser) * 3762
+                childrenuser = int(childrenuser)
+                childrenTotal = (childrenuser, childrenCost)
+                return childrenTotal
 
 def contributionNI():
-    while AssertionError:
-        try:
+    while True:
             contributionuser = input('Do you contribute to the National Insurance?Y/N.')
             contributionuser = contributionuser.upper()
-            assert (contributionuser == 'Y' or contributionuser == 'N')
-            if contributionuser == 'Y':
+            if not (contributionuser == 'Y' or contributionuser == 'N'):
+                print('Enter \'Y\' for Yes or \'N\' for no.')
+
+            elif contributionuser == 'Y':
                 return True
             else:
                 return False
-        except AssertionError:
-            print('Enter \'Y\' for Yes or \'N\' for no.')
-
 
 print('Welcome to the Money Manager !\n')
 print('The Money Manager application will help you estimate your tax and your savings.\n')
@@ -275,7 +229,6 @@ print('The Money Manager application will help you estimate your tax and your sa
 titleUser = title()
 firstnameUser = firstname()
 surnameUser = surname()
-
 ageDobUser = age()
 ageUser = ageDobUser[0]
 yearUser = ageDobUser[1]
@@ -456,3 +409,6 @@ my_file.write("********************Saving*******************\n\n")
 my_file.write("With your current way of life, you could save " + u"\u00a3" + str(round(saving1year))+ " in 1 year, " + u"\u00a3" + str(round(saving3years)) +" in 3 years, and " + u"\u00a3" + str(round(saving5years))+" in 5 years.")
 
 my_file.close()
+
+
+
