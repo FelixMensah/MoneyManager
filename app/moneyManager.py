@@ -291,7 +291,6 @@ class User:
         user = cls()
 
         while True:
-            # you could alternatively use cls._valid_name directly here
             try:
                 user.title = input('What is your title? Mr/Ms/Mrs/Sir/Dr: ')
             except ValueError:
