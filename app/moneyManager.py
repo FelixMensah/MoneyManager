@@ -1,6 +1,6 @@
 # This Python file uses the following encoding: utf-8
 
-
+import os
 __author__ = 'Felix'
 
 
@@ -253,7 +253,7 @@ class User:
             return round(0.2 * 31785 + 0.4 * (150000 - 31785) + (taxableIncome - 150000) * 0.45, 2)
 
     def national_insurance_contribution(self):
-        if int(self.age) > 67 or self.contribution_NI == False:
+        if int(self.age) > 67 or self.contribution_NI == 'N' or self.contribution_NI == 'n':
             return 0
         elif int(self.income) <= 8060:
             return 0
@@ -289,8 +289,8 @@ class User:
     @classmethod
     def from_input(cls):
         user = cls()
-
         while True:
+            # you could alternatively use cls._valid_name directly here
             try:
                 user.title = input('What is your title? Mr/Ms/Mrs/Sir/Dr: ')
             except ValueError:
@@ -410,19 +410,19 @@ class User:
                 print('Please try again.')
             else:
                 break
+
         while True:
             try:
-                contribution_NI = input('Do you contribute to the NI? Y/N')
-                if contribution_NI == 'Y' or contribution_NI == 'y':
-                     user.contribution_NI == True
-                else:
-                     user.contribution_NI == False
+                user.contribution_NI = input('Do you contribute to the NI? Y/N')
             except ValueError:
                 print('Please try again.')
             else:
                 break
 
-        my_file = open("C:\\User\\Félix\\PycharmProjects\\MoneyManager\\src\\output", "r+")
+
+        cwd = os.getcwd()
+
+        my_file = open("C:\\Users\\Félix\\PycharmProjects\\MoneyManager\\src\\output", "r+")
 
         my_file.write("Money Manager Summary\n\n")
 
@@ -459,10 +459,13 @@ class User:
 
         my_file.write("********************Saving*******************\n\n")
 
-        my_file.write("With your current way of life, you could save " + u"\u00a3" + str(round(user.saving(1)))+ " in 1 year, " + u"\u00a3" + str(round(user.saving(2))) +" in 3 years, and " + u"\u00a3" + str(round(user.saving(3)))+" in 5 years.")
+        
 
         my_file.close()
-
+        return user
 new_user = User.from_input()
 
+cwd = os.getcwd()  # Get the current working directory (cwd)
+files = os.listdir(cwd)
+print(cwd)
 
