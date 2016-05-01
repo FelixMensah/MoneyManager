@@ -465,5 +465,5 @@ class User:
         my_file.close()
 
 new_user = User.from_input()
-print(type(new_user.hobby))
+
 
