@@ -269,22 +269,22 @@ class User:
         return int(self.income) - self.total_deduction()
 
     def money_leaving_after_expenses(self):
-       if self.money_leaving_after_tax() - (self.children* 3762) - int(self.miscellaneous) - (int(self.hobby)*12)- int(self._clothing) - int(self.food) - (int(self.rent)*52)  - \
+       if self.money_leaving_after_tax() - (int(self.children)* 3762) - int(self.miscellaneous) - (int(self.hobby)*12)- int(self._clothing) - int(self.food) - (int(self.rent)*52)  - \
                 int(self.debtreimbursement)*12 <= 0:
             return 0
        else:
-         return self.money_leaving_after_tax() - (self.children* 3762) - int(self.miscellaneous) - (int(self.hobby)*12)- int(self._clothing) - int(self.food) - (int(self.rent)*52) - \
+         return self.money_leaving_after_tax() - (int(self.children)* 3762) - int(self.miscellaneous) - (int(self.hobby)*12) - int(self._clothing) - int(self.food) - (int(self.rent)*52) - \
                 int(self.debtreimbursement)*12
 
     def leaving_debt(self):
         return self.total_loan_user() - int(self.debtreimbursement) *12
 
     def saving(self):
-        money_leaving_after_1year = self.money_leaving_after_expenses()
-        money_leaving_after_3years = self.money_leaving_after_expenses() * 3
-        money_leaving_after_5years = self.money_leaving_after_expenses() * 5
-        moneyLeaving = (money_leaving_after_1year,money_leaving_after_3years,money_leaving_after_5years)
-        return moneyLeaving
+        money_leaving_after_1year = round(self.money_leaving_after_expenses(),2)
+        money_leaving_after_3years = round(self.money_leaving_after_expenses() * 3,2)
+        money_leaving_after_5years = round(self.money_leaving_after_expenses() * 5,2)
+        saving = [money_leaving_after_1year,money_leaving_after_3years,money_leaving_after_5years]
+        return saving
 
     @classmethod
     def from_input(cls):
@@ -428,7 +428,7 @@ class User:
 
         my_file.write("************Personal information************\n\n")
 
-        my_file.write(user.title + " " + user.first_name + " " + user.last_name + "\n")
+        my_file.write(user.title.capitalize() + " " + user.first_name.capitalize() + " " + user.last_name.upper() + "\n")
         my_file.write( "Age : " + " " + str(user.age) + "\n")
         my_file.write("Number of children : " + str(user.age) + "\n\n")
 
@@ -457,15 +457,17 @@ class User:
         my_file.write("Mortage debt : " + u"\u00a3" + str(user.mortgage_loan) + "\n\n")
         my_file.write("TOTAL debt : " + u"\u00a3" + str(user.total_loan_user()) + "\n\n")
 
-        my_file.write("********************Saving*******************\n\n")
+        my_file.write("********************Saving*****************\n\n")
 
-        
+        my_file.write("With your current way of life, you could save " + u"\u00a3" + str(user.saving()[0])+ " in 1 year, " + u"\u00a3" + str(user.saving()[1]) +" in 3 years, and " + u"\u00a3" + str(user.saving()[2])+" in 5 years.")
 
         my_file.close()
         return user
+		
 new_user = User.from_input()
 
 cwd = os.getcwd()  # Get the current working directory (cwd)
 files = os.listdir(cwd)
 print(cwd)
+
 
