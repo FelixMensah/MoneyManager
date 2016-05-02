@@ -29,7 +29,7 @@ class User:
     @staticmethod
     def _valid_name(name):
         return name is None or name.isalpha()
-        # this will choke if name isn't None or a string - maybe add more rules?
+        
 
     @staticmethod
     def _valid_number(number):
