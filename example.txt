@@ -2,37 +2,37 @@ Money Manager Summary
 
 ************Personal information************
 
-Mr Felix MENSAH
-Date of birth : 14 June 1996
-Number of children : 0
+Sir John CONNOR
+Age :  64
+Number of children : 2
 
 ***************Tax information**************
 
-Salary : £45000
-Personal allowance : £10600
-Tax paid : £7402.6
-NI contribution : £4171
-Total deduction : £11573.6
-You take home : £33426.4
+Salary : £150000
+Personal allowance : £0
+Tax paid : £53642.6
+NI contribution : £6271
+Total deduction : £59913.6
+You take home : £90086.4
 
 ***************Annual expenses**************
 
 Rent : £10920
-Food : £1768
-Hobby : £1020
-Clothing : £250
-Other : £412
+Food : £32
+Hobby : £32
+Clothing : £541
+Other : £456
 
 *********************Debt********************
 
-reimbursement debt : £648
+reimbursement debt : £21
 
-Student debt : £10000
-Consumption debt : £0
-Mortage debt : £0
+Student debt : £4500
+Consumption debt : £2100
+Mortage debt : £1000
 
-TOTAL debt : £9352
+TOTAL debt : £7579
 
-********************Saving*******************
+********************Saving*****************
 
-With your current way of life, you could save £18408 in 1 year, £55225 in 3 years, and £92042 in 5 years.
+With your current way of life, you could save £69977.4 in 1 year, £209932.2 in 3 years, and £349887.0 in 5 years.rs.
